@@ -1,0 +1,161 @@
+<div class="bs-callout bs-callout-info clear" >
+  <!-- <a href="" class="glyphicon glyphicon-minus" ng-click="isCollapsed = !isCollapsed"></a> -->
+  <button type="button" class="btn btn-xs btn-normal minus-btn" ng-click="showNew = !showNew">
+    <span class="glyphicon" ng-class="{'glyphicon-minus': showNew, 'glyphicon-plus': !showNew }"></span>
+    New
+  </button>
+
+  <form class="form-inline inp-form" role="form" ng-show="showNew">
+
+    <div class="form-text">
+      <textarea name="mainText" id="main-text" class="form-control" cols="30" rows="3" ng-model="pdata.mainText" ng-change="parse()"></textarea>
+    </div>
+
+    <div class="form-inputs">
+      <input type="text" class="form-control" id="fname" placeholder="First Name" value="{{pdata.fName}}" ng-model="pdata.fName" required ng-change="parseBack()"/>
+      <input type="text" class="form-control" id="lname" placeholder="Last Name" value="{{pdata.lName}}" ng-model="pdata.lName" required ng-change="parseBack()"/>
+      <input type="text" class="form-control" id="bdate" placeholder="Birth Date" value="{{pdata.bDate}}" ng-model="pdata.bDate" required ng-change="parseBack()"/>
+      <button type="button" class="btn btn-xs btn-primary rand-btn" ng-click="generateDate()">
+        <span class="glyphicon glyphicon-random"></span>
+      </button>
+      <input type="text" class="form-control" id="phone" placeholder="Phone" value="{{pdata.phone}}" ng-model="pdata.phone" required ng-change="parseBack()"/>
+      <button type="button" class="btn btn-xs btn-primary rand-btn" ng-click="generatePhone()">
+        <span class="glyphicon glyphicon-random"></span>
+      </button>
+      <input type="text" class="form-control" id="mail" placeholder="E-Mail" value="{{pdata.mail}}" ng-model="pdata.mail" required ng-change="parseBack()"/>
+    </div>
+
+    <div class="selects">
+      <select class="form-control select-type" ng-model="pdata.type">
+        <option value="" disabled selected >Select Type</option>
+        <option value="{{ type.name }}" ng-repeat="type in types">{{ type.name }}</option>
+      </select>
+      <select class="form-control select-agent" ng-model="pdata.agent">
+        <option value="" disabled selected >Select Agent</option>
+        <option value="{{ agent.name }}" ng-repeat="agent in agents">{{ agent.name }}</option>
+      </select>
+
+      <div class="form-submit">
+        <button type="submit" class="btn btn-success" ng-click="addItem()">Add</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<table class="table" >
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>Surname</td>
+      <td>Birthdate</td>
+      <td>Phone</td>
+      <td>Email</td>
+      <td>Type</td>
+      <td>Agent</td>
+      <td>Actions</td>
+    </tr>
+
+    <tr>
+      <td colspan="10" class="dilimiter dilimiter-red"></td>
+    </tr>
+
+    <tr class="reveal-animation" ng-repeat="item in items | filter:{ state: 1 }">
+      <td>{{item.fName}}</td>
+      <td>{{item.lName}}</td>
+      <td>{{item.bDate}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.mail}}</td>
+      <td>{{item.type}}</td>
+      <td>{{item.agent}}</td>
+      <td class="table-buttons">
+        <button type="button" class="btn btn-xs btn-success" ng-click="changeState(item, 'down')">
+          <span class="glyphicon glyphicon-arrow-down"></span>
+        </button>
+        <button type="button" class="btn btn-xs btn-warning" ng-click="openModal(item)">
+          <span class="glyphicon glyphicon-edit"></span>
+        </button>
+        <button type="button" class="btn btn-xs btn-danger" ng-click="removeItem(item)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </td>
+    </tr>
+      
+    <tr>
+      <td colspan="10" class="dilimiter dilimiter-yellow"></td>
+    </tr>
+
+    <tr class="reveal-animation" ng-repeat="item in items | filter:{ state: 2 }">
+      <td>{{item.fName}}</td>
+      <td>{{item.lName}}</td>
+      <td>{{item.bDate}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.mail}}</td>
+      <td>{{item.type}}</td>
+      <td>{{item.agent}}</td>
+      <td class="table-buttons">
+        <button type="button" class="btn btn-xs btn-success" ng-click="changeState(item, 'down')">
+          <span class="glyphicon glyphicon-arrow-down"></span>
+        </button>
+        <button type="button" class="btn btn-xs btn-success" ng-click="changeState(item, 'up')">
+          <span class="glyphicon glyphicon-arrow-up"></span>
+        </button>
+        <button type="button" class="btn btn-xs btn-warning" ng-click="openModal(item)">
+          <span class="glyphicon glyphicon-edit"></span>
+        </button>
+        <button type="button" class="btn btn-xs btn-danger" ng-click="removeItem(item)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="10" class="dilimiter dilimiter-green"></td>
+    </tr>
+
+    <tr class="reveal-animation" ng-repeat="item in items | filter:{ state: 3 }">
+      <td>{{item.fName}}</td>
+      <td>{{item.lName}}</td>
+      <td>{{item.bDate}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.mail}}</td>
+      <td>{{item.type}}</td>
+      <td>{{item.agent}}</td>
+      <td class="table-buttons">
+        <button type="button" class="btn btn-xs btn-success" ng-click="changeState(item, 'up')">
+          <span class="glyphicon glyphicon-arrow-up"></span>
+        </button>
+        <button type="button" class="btn btn-xs btn-warning" ng-click="openModal(item)">
+          <span class="glyphicon glyphicon-edit"></span>
+        </button>
+        <button type="button" class="btn btn-xs btn-danger" ng-click="removeItem(item)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="btn-group additional-btns">
+  <button type="button" class="btn btn-default" ng-click="moveToArchive()">
+    <span class="glyphicon glyphicon-briefcase"></span>
+    Move to archive
+  </button>
+  <button type="button" class="btn btn-default" ng-click="export()">
+    Auto complete
+    <span class="glyphicon glyphicon-arrow-right"></span>
+  </button>
+</div>
+
+<div class="money-count">
+  <button type="button" class="btn btn-xs btn-normal minus-btn" ng-click="showPay = !showPay">
+    <span class="glyphicon" ng-class="{'glyphicon-plus': showPay, 'glyphicon-minus': !showPay }"></span>
+    Payment
+  </button>
+  <ul collapse="showPay">
+    <li>Completed: {{completedItems}} of {{totalItems}}</li>
+    <li>Total price of completed: <span class="bold-text">{{completedTotalPrice}}</span></li>
+    <li>Money to self: <span class="bold-text">{{completedSelfPay}}</span></li>
+    <li>Money to agents: <span class="bold-text">{{completedAgentsPay}}</span></li>
+  </ul>
+</div>

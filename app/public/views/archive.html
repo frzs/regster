@@ -1,0 +1,43 @@
+<div ng-controller="ArchiveCtrl">  
+  <table class="table">
+    <thead>
+      <th class="col-md-3">Date</th>
+      <th class="col-md-3">First Name</th>
+      <th class="col-md-3">Last Name</th>
+      <th class="col-md-3">Email</th>
+      <tr></tr>
+      <tr>
+        <th>
+          <input type="text" class="form-control" ng-model="query.date" />
+        </th>
+        <th>
+          <input type="text" class="form-control" ng-model="query.fName" />
+        </th>
+        <th>
+          <input type="text" class="form-control" ng-model="query.lName" />
+        </th>
+        <th>
+          <input type="text" class="form-control" ng-model="query.mail" />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="reveal-animation" ng-repeat="item in items | filter:query">
+        <td>{{item.date | date:'dd.MM.yyyy'}}</td>
+        <td>{{item.fName}}</td>
+        <td>{{item.lName}}</td>
+        <td>{{item.mail}}</td>
+        <td>
+          <button ng-click="removeItem(item)" type="button" class="btn btn-xs btn-danger">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="button" class="btn btn-default" ng-click="export()">
+    <span class="glyphicon glyphicon-export"></span>
+    Export
+  </button>
+</div>

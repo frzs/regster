@@ -1,0 +1,23 @@
+{
+  "name": "Regster",
+  "description": "Register all the people",
+  "version": "0.1.0",
+  "main": "index.html",
+  "window": {
+    "title": "Regster",
+    "toolbar": false,
+    "frame": true,
+    "position": "center",
+    "fullscreen": false,
+    "resizable": true,
+    "width": 1000,
+    "height": 800,
+    "min_width": 850,
+    "min_height": 650
+  },
+  "node-remote": "<local>",
+  "dependencies": {
+    "express": "3.x",
+    "nedb": "~0.8.0"
+  }
+}

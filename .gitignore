@@ -1,0 +1,9 @@
+app/node_modules/
+app/db/
+bower_components/
+dist/
+node_modules/
+resources/
+tmp/
+.editorconfig
+.jshintrc

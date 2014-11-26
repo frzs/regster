@@ -1,0 +1,55 @@
+<div class="agents">
+  <table class="table agents-table" ng-controller="AgentsCtrl">
+    <thead>
+          <th class="col-sm-4">Agent:  <input type="text" class="form-control" ng-model="query.date" /></th>
+          <th class="col-sm-4">Rate: <input type="text" class="form-control" ng-model="query.fname" /></th>
+          <th class="col-md-2">
+              <button ng-click="addAgent(item)" type="button" class="btn btn-m btn-success">
+                Add Agent
+              </button>
+          </th>
+      </thead>
+      <tbody>
+            <tr class="reveal-animation" ng-repeat="agent in agents">
+              <td>{{agent.name}}</td>
+              <td>{{agent.rate}}</td>
+              <td class="table-btns">
+                <button ng-click="editItem(item)" type="button" class="btn btn-xs btn-warning">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </button>
+                <button ng-click="removeItem(item)" type="button" class="btn btn-xs btn-danger">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </td>
+            </tr>
+      </tbody>
+  </table>
+  
+  <br/><br/>
+
+  <table class="table types-table" ng-controller="TypesCtrl">
+    <thead>
+          <th class="col-sm-4">Type: <input type="text" class="form-control" ng-model="query.date" /></th>
+          <th class="col-sm-4">Rate: <input type="text" class="form-control" ng-model="query.fname" /></th>
+          <th class="col-md-2">
+            <button ng-click="addType(item)" type="button" class="btn btn-m btn-success">
+                Add Type
+            </button>
+          </th>
+      </thead>
+      <tbody>
+          <tr class="reveal-animation" ng-repeat="type in types">
+            <td>{{type.name}}</td>
+            <td>{{type.rate}}</td>
+            <td class="table-btns">
+              <button ng-click="editItem(item)" type="button" class="btn btn-xs btn-warning">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </button>
+                <button ng-click="removeItem(item)" type="button" class="btn btn-xs btn-danger">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

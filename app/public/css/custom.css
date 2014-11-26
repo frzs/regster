@@ -1,0 +1,151 @@
+.table td{
+	border: 1px solid #dddddd;
+	width: 100px;
+	padding: 5px !important; 
+}
+.head_table{
+	margin: 0px;
+}
+.head_table tr td{
+	border: 1px solid #dddddd;
+	width: 100px;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+.dilimiter{
+	height: 5px;
+	padding: 0px !important;
+	border: none;
+}
+.dilimiter-red{
+	background-color: #d9534f;
+}
+.dilimiter-yellow{
+	background-color: #f0ad4e;
+}
+.dilimiter-green{
+	background-color: #5cb85c;
+}
+
+
+.menu{
+	width: 100%;
+}
+.menu button{
+	width: 25%;
+	height: 30px;
+	/*border-radius: 0px;*/
+}
+
+
+.inp-form{
+	overflow: auto;
+	padding-top: 10px;
+}
+
+.form-text, .form-inputs, .form-submit{
+	float: left;
+	width: 328px;
+}
+
+.form-text, .form-text textarea{
+	width: 300px;
+	height: 195px;
+	resize: none;
+}
+
+.form-inputs{
+	padding-left: 20px
+}
+.form-inputs input{
+	width: 280px;
+	margin: 0px 0px 6px 0px;
+}
+.form-submit{
+	float: right;
+	margin: 10px;
+}
+
+.selects{
+	/*padding-left: 20px;
+	float: left;*/
+	padding-left: 30px;
+	width: 305px;
+	float: left;
+}
+.selects select{
+	margin: 0px 0px 6px 0px;
+}
+
+.form-submit{
+	width: 75px;
+	margin: 20px 0px 0px 0px;
+}
+.form-submit button{
+	width: 75px;
+}
+
+.rand-btn{
+	float: right;
+	padding: 6px 5px !important;
+}
+
+
+
+.clear{
+	clear: both;
+}
+
+
+.modalbox input[type="text"],
+.modalbox select{
+	width: 95%;
+	margin: 0px 0px 10px 0px;
+}
+.modalbox select :last-child{
+	margin: 0px;
+}
+.modalbox .edit-btn{
+	position: absolute;
+	left: 20px;
+}
+
+
+.minus-btn{
+	background-color: transparent;
+	position: relative;
+}
+
+.table-buttons{
+	width: 125px !important;
+}
+.table-buttons button{
+	margin: 0px 3px;
+}
+
+.additional-btns{
+	float: right;
+}
+
+.money-count ul li {
+	font-style: italic;
+}
+.bold-text{
+	font-weight: bold;
+}
+
+
+.agents-table{
+	margin: auto;
+	width: 100%;
+}
+.agents-table thead > tr > th,
+.types-table thead > tr > th{
+	border-bottom: none !important; 
+	padding: 30px 15px 40px 0px;
+}
+.table-btns{
+	border: none !important;
+}

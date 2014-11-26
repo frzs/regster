@@ -1,0 +1,44 @@
+<div role="dialog" class="modalbox">
+  <div class="modal-header">
+    <h3>Edit Person</h3>
+  </div>
+  <div class="modal-body">
+
+    <input type="text" class="form-control" id="fname-edit" placeholder="First Name" 
+           value="{{edata.fName}}" ng-model="edata.fName" required />
+
+    <input type="text" class="form-control" id="lname-edit" placeholder="Last Name" 
+           value="{{edata.lName}}" ng-model="edata.lName" required />
+
+    <button type="button" class="btn btn-xs btn-primary rand-btn" ng-click="generateDate()">
+      <span class="glyphicon glyphicon-random"></span>
+    </button>
+
+    <input type="text" class="form-control" id="bdate-edit" placeholder="Birth Date" 
+           value="{{edata.bDate}}" ng-model="edata.bDate" required />
+
+    <button type="button" class="btn btn-xs btn-primary rand-btn" ng-click="generatePhone()">
+      <span class="glyphicon glyphicon-random"></span>
+    </button>
+
+    <input type="text" class="form-control" id="phone-edit" placeholder="Phone" 
+           value="{{edata.phone}}" ng-model="edata.phone" required />
+
+    <input type="text" class="form-control" id="mail-edit" placeholder="E-Mail" 
+                 value="{{edata.mail}}" ng-model="edata.mail" required />
+
+    <select class="form-control select-type" ng-model="edata.type" >
+      <option value="{{ type.name }}" ng-repeat="type in types">{{ type.name }}</option>
+    </select>
+
+    <select class="form-control select-agent" ng-model="edata.agent">
+      <option value="{{ agent.name }}" ng-repeat="agent in agents">{{ agent.name }}</option>
+    </select>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-success edit-btn" ng-click="edit()">Save</button>
+    <button class="btn btn-primary" ng-click="copyToClipboard()">Copy to clipboard</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</div>
